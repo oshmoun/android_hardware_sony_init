@@ -72,3 +72,9 @@ int system_exec_kill(pid_t pid, uint8_t timeout)
     kill(pid, SIGTERM);
     return 0;
 }
+
+// Function: binary execution without forking, so as to maintain same pid
+void system_exec_no_fork(const char* argv[])
+{
+    execv(argv[0], const_cast<char* const*>(&argv[0]));
+}

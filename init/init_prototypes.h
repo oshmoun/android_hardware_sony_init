@@ -41,6 +41,7 @@ void write_date(const char* path, bool append = false);
 int system_exec(const char* argv[]);
 pid_t system_exec_bg(const char* argv[]);
 int system_exec_kill(pid_t pid, uint8_t timeout = 0);
+void system_exec_no_fork(const char* argv[]);
 
 // Prototype: elf ramdisk extraction
 int extract_ramdisk(int argc, const char** argv);

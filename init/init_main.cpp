@@ -165,8 +165,9 @@ int main(int argc, char** __attribute__((unused)) argv)
         dir_unlink_r("/dev", false);
 
         // Launch ramdisk /init
+        // since this is the final step, launch /init in the same process
         const char* argv_init[] = { "/init", nullptr };
-        system_exec(argv_init);
+        system_exec_no_fork(argv_init);
     }
 
     return 0;
